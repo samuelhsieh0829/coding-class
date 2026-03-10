@@ -8,7 +8,7 @@
   - 修正部分場景(如學校網路)無法使用的問題
   - 確保LAN模式可以正常運作
 - samuelhsieh機器人
-  - 優化Prompt
+  - ~~優化Prompt~~太雜了需要重構
 - Youtube Music Bot
   - 把它修好
 
@@ -19,12 +19,17 @@
 - 捷運大富翁
   - 完善CI/CD:製作完整的unittest流程
   - 剩下是學弟的事:D
-- samuelhsieh機器人
+- ~~samuelhsieh機器人~~把架構升級做成新的專案
   - 更改回覆機制:不僅限於mention
   - 增加功能，讓它從chat bot變成agent
 
 ### 新專案:
-待構想
+- samuelhsieh agent
+  - 繼承samuelhsieh機器人的大部分功能
+  - 將模型選擇機制(GPT物件)改成依照模型名稱找到適用的提供商(OpenAI、Gemini...)，分成不同的物件分別撰寫請求調用
+  - 更改Prompt機制，改成類OpenClaw的SOUL.md、IDENTITY.md，遷移舊的base_prompt中描述@人及表符使用的方式
+  - 從回應改成Agent，固定時間喚醒
+  - on_message 可以先決定是否需要回應訊息
 
 
 ## 每日進度小日記
@@ -36,3 +41,7 @@
 ### 3/3晚上
 剛剛又再研究了一下，發現客戶端無法正常運行是因為上次改模組化後並沒有改完整，像是connecting_list沒有共用到所有物件，總之大致上修好了，但需要再優化速度，目前延遲非常高@@
 [客戶端Debug](https://github.com/samuelhsieh0829/p2p_vc/commit/01283051b7e2ed677d64d72b6926956372222fee)
+
+### 3/10課堂
+今天原本想搞unittest，但是去參考別人的專案發現要整合進原本的專案有點困難，去問了一下Github Copilot Agent，他好像直接幫我寫好了，之後找時間審查一下他提的PR，再決定要嘗試重寫還是怎樣，然後我決定接下來就做AI機器人，延伸原本的samuelhsieh機器人，把它做成類Agent
+[捷大CI(AI版)](https://github.com/yingOuOb/izcc2025MRT/pull/1)
