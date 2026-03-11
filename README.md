@@ -8,7 +8,7 @@
   - 修正部分場景(如學校網路)無法使用的問題
   - 確保LAN模式可以正常運作
 - samuelhsieh機器人
-  - ~~優化Prompt~~太雜了需要重構
+  - ~~優化Prompt~~太雜了需要重構✅
 - Youtube Music Bot
   - 把它修好
 
@@ -25,11 +25,12 @@
 
 ### 新專案:
 - samuelhsieh agent
-  - 繼承samuelhsieh機器人的大部分功能
-  - 將模型選擇機制(GPT物件)改成依照模型名稱找到適用的提供商(OpenAI、Gemini...)，分成不同的物件分別撰寫請求調用
-  - 更改Prompt機制，改成類OpenClaw的SOUL.md、IDENTITY.md，遷移舊的base_prompt中描述@人及表符使用的方式
+  - 繼承samuelhsieh機器人的大部分功能✅
+  - 將模型選擇機制(GPT物件)改成依照模型名稱找到適用的提供商(OpenAI、Gemini...)，分成不同的物件分別撰寫請求調用✅
+  - 更改Prompt機制，改成類OpenClaw的SOUL.md、IDENTITY.md，遷移舊的base_prompt中描述@人及表符使用的方式👀
   - 從回應改成Agent，固定時間喚醒
   - on_message 可以先決定是否需要回應訊息
+  - 可以使用tools
 
 
 ## 每日進度小日記
@@ -45,3 +46,7 @@
 ### 3/10課堂
 今天原本想搞unittest，但是去參考別人的專案發現要整合進原本的專案有點困難，去問了一下Github Copilot Agent，他好像直接幫我寫好了，之後找時間審查一下他提的PR，再決定要嘗試重寫還是怎樣，然後我決定接下來就做AI機器人，延伸原本的samuelhsieh機器人，把它做成類Agent
 [捷大CI(AI版)](https://github.com/yingOuOb/izcc2025MRT/pull/1)
+
+### 3/11晚上
+今天開始修改samuelhsieh機器人，原本機器人程式全部寫在同個檔案看了真的很頭痛，所以今天把所有的功能作了區分，也把AI模型的部分改好了，跟朋友們討論了一下，因為讓機器人完全有agent的功能有可能會造成亂回應，擾亂原本的聊天室秩序，因此決定把agent功能設定成在.env中設定的特定頻道可使用，可以在裡面主動發話、回應任何非mention訊息，計畫可以再給與使用tools的能力。然後prompts設計成可以有多個profile，用檔案夾做區分，程式運行時隨時可以作切換。但這兩個都還沒做，下次一定。
+[samuelhsieh agent第一次commit](https://github.com/samuelhsieh0829/samuelhsieh_agent/commit/82be354495fd2cf2a0a4103d75e276608b70a7dc)
