@@ -20,16 +20,16 @@
   - 完善CI/CD:製作完整的unittest流程
   - 剩下是學弟的事:D
 - ~~samuelhsieh機器人~~把架構升級做成新的專案
-  - 更改回覆機制:不僅限於mention
-  - 增加功能，讓它從chat bot變成agent
+  - 更改回覆機制:不僅限於mention✅
+  - 增加功能，讓它從chat bot變成agent👀
 
 ### 新專案:
 - samuelhsieh agent
   - 繼承samuelhsieh機器人的大部分功能✅
   - 將模型選擇機制(GPT物件)改成依照模型名稱找到適用的提供商(OpenAI、Gemini...)，分成不同的物件分別撰寫請求調用✅
-  - 更改Prompt機制，改成類OpenClaw的SOUL.md、IDENTITY.md，遷移舊的base_prompt中描述@人及表符使用的方式👀
-  - 從回應改成Agent，固定時間喚醒
-  - on_message 可以先決定是否需要回應訊息
+  - 更改Prompt機制，改成類OpenClaw的SOUL.md、IDENTITY.md，遷移舊的base_prompt中描述@人及表符使用的方式✅
+  - 從回應改成Agent，固定時間喚醒(heartbeat)
+  - on_message 可以先決定是否需要回應訊息✅
   - 可以使用tools
 
 
@@ -50,3 +50,7 @@
 ### 3/11晚上
 今天開始修改samuelhsieh機器人，原本機器人程式全部寫在同個檔案看了真的很頭痛，所以今天把所有的功能作了區分，也把AI模型的部分改好了，跟朋友們討論了一下，因為讓機器人完全有agent的功能有可能會造成亂回應，擾亂原本的聊天室秩序，因此決定把agent功能設定成在.env中設定的特定頻道可使用，可以在裡面主動發話、回應任何非mention訊息，計畫可以再給與使用tools的能力。然後prompts設計成可以有多個profile，用檔案夾做區分，程式運行時隨時可以作切換。但這兩個都還沒做，下次一定。
 [samuelhsieh agent第一次commit](https://github.com/samuelhsieh0829/samuelhsieh_agent/commit/82be354495fd2cf2a0a4103d75e276608b70a7dc)
+
+### 3/17(差不多啦 +-一天)
+寫了好多東西，反正是把回覆決策、多prompt那些的都弄好了，接下來就是記憶功能跟toolsㄌ，喔對還有固定時間喚醒(heartbeat)
+[samuelhsieh agent第一階段完成](https://github.com/samuelhsieh0829/samuelhsieh_agent/commit/171dda286b8070a3a688d7216dacd17cfee8bff4) 前面還有好幾個commit都是差不多這幾天弄得
